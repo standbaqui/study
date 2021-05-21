@@ -1,0 +1,32 @@
+CREATE OR REPLACE FUNCTION "FN_GET_DEALER_ID" (
+  P_DEALER IN VARCHAR2
+ ) RETURN VATCHAR2 IS
+ 
+  V_DEALER_ID VARCHAR2(4) := '';
+ BEGIN
+ 
+ IF P_DEALER like '%코오롱%' THEN
+  V_DEALER_ID := '0001';  
+ IF P_DEALER like '%동성%' THEN
+  V_DEALER_ID := '0002';
+ IF P_DEALER like '%바바리안%' THEN
+  V_DEALER_ID := '0003';
+ IF P_DEALER like '%내쇼날%' THEN
+  V_DEALER_ID := '0007';
+ IF P_DEALER like '%한독%' THEN
+  V_DEALER_ID := '0008';
+ IF P_DEALER like '%도이치%' THEN
+  V_DEALER_ID := '0011';
+ IF P_DEALER like '%모터라드%' OR P_DEALER like '%모토라드%' THEN
+  V_DEALER_ID := '0012';
+ IF P_DEALER like '%삼천리%' THEN
+  V_DEALER_ID := '0229';
+ IF P_DEALER like '%제이제이%' THEN
+  V_DEALER_ID := '0229';
+ ELSE
+  V_DEALER_ID := '';
+ END IF;
+ 
+ RETURN V_DEALER_ID;
+ 
+END FN_GET_DEALER_ID;
